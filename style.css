@@ -1,0 +1,130 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Open sans, Helvetica, sans-serif;
+  background: #111;
+}
+
+.gallery{
+  max-width:1500px;
+  margin: 0 auto;
+  padding: 100px 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-auto-rows: 300px;
+  grid-gap: 10px;
+  justify-content: center;
+  list-style-type: none;   
+}
+.profile-card{
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #f8f8f85a;  
+  transition: transform 0.4s ease-out;  
+}
+.profile-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   
+}
+.side-social{
+  position: absolute;
+  top: 0;
+  height: 100%;
+  list-style-type: style none;
+}
+.side-social a {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 5px;
+  border: 1px solid #999;
+  background-color: #1b1b1b;
+  display: flex;
+	align-items: center;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(calc(-100% - 10px));
+  transition: transform 0.2s ease-in-out;
+}
+.side-social a:hover {
+  background-color: #333;
+  }
+.side-social a img {
+  width:80%;
+}
+ .profile-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #0C1D42;
+  border-top: 1px solid #9999997b;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+.profile-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #e8d295;
+  margin-bottom: 5px;
+}
+.profile-work {
+  font-size: 16px;
+  font-weight: 500;
+	font-style: italic;
+	color: #dab651;
+	font-family: Raleway, sans-serif;
+}
+.profile-name,
+.profile-work{
+    will-change: transform;
+}
+.profile-card:hover  .profile-info,
+.profile-card:hover  .side-social a{
+  transform: translate(0);
+}
+
+.profile-card:hover  .side-social a:nth-child(1){
+  transition-delay: 0.1s;
+}
+.profile-card:hover  .side-social a:nth-child(2){
+	transition-delay: 0,2s;
+}
+.profile-card:hover  .side-social a:nth-child(3){
+  transition-delay: 0,3s;
+}
+
+.profile-card:hover {
+  transform: scale(0.95);
+  box-shadow: 0 0 0 3px #f1f1f1;
+}  
+
+@media (pointer: coarse){
+  
+  .profile-info,
+  .side-social a {
+    transform: translate(0);
+  }
+
+  .profile-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+ 
+ @media (max-width: 630px) {
+  .gallery {
+    grid-template-columns: minmax(auto, 450px);
+    grid-auto-rows: auto;
+    grid-gap: 50px;
+  }
+}
